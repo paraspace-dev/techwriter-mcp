@@ -1,0 +1,38 @@
+{
+  "name": "docs-mcp",
+  "version": "0.1.0",
+  "description": "An MCP server that writes software documentation from facts a coding agent supplies",
+  "license": "MIT",
+  "author": "Wes Roberts",
+  "type": "module",
+  "bin": {
+    "docs-mcp": "dist/main.js"
+  },
+  "files": [
+    "dist",
+    "example",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "smoke": "npm run build && node scripts/smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.0.0",
+    "openai": "^7.4.0",
+    "smol-toml": "^1.7.1",
+    "tinyglobby": "^0.2.17",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.0"
+  },
+  "repository": "https://github.com/jchook/docs-mcp",
+  "homepage": "https://github.com/jchook/docs-mcp#readme"
+}

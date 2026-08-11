@@ -1,0 +1,12 @@
+{
+  "name": "docs-mcp",
+  "description": "The docs-mcp plugin, served from its own repository.",
+  "owner": { "name": "Wes Roberts" },
+  "plugins": [
+    {
+      "name": "docs-mcp",
+      "source": "./",
+      "description": "Writes your docs from facts, so the coding agent never has to."
+    }
+  ]
+}

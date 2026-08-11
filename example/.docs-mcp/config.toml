@@ -1,0 +1,12 @@
+# Example docs-mcp project configuration. Copy .docs-mcp/ into your repo root.
+
+[model]
+# Any current OpenAI general-purpose model.
+model = "gpt-5.1"
+# reasoning_effort = "low"
+# max_output_tokens = 8000
+
+[voice]
+include = ["docs/**/*.md", "README.md"]
+exclude = ["docs/generated/**"]
+# max_kb = 256
