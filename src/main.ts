@@ -28,7 +28,7 @@ function main() {
       service ??= new DocumentService(
         new OpenAIProvider(config.model),
         system,
-        `docs-mcp:${root}`
+        `techwriter-mcp:${root}`
       );
       return service;
     })

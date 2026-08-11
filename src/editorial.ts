@@ -97,4 +97,6 @@ export const TYPE_GUIDANCE: Record<string, string> = {
   guide: 'This is a developer guide. The reader has a task; organize around getting it done, and show the commands they can paste.',
   explanation: 'This is a technical explanation. One idea, built up in the order the reader can absorb it.',
   adr: 'This is an architecture decision record. State the decision, the context that forced it, and the consequences, including the unpleasant ones. Brevity is expected.',
+  pr: 'This is a pull request description. Begin with the title as a single `#` heading: imperative, specific, under 70 characters. The reviewer has the diff, so the body says what the diff cannot: why the change exists, what changed conceptually, how it was verified, and where a careful reviewer should slow down. Do not inventory the files.',
+  issue: 'This is an issue. Begin with the title as a single `#` heading, specific enough to recognize in a list of a hundred. For a bug, lead with observed versus expected behavior and the shortest reproduction; for a feature request, lead with the problem before any proposed solution. Give the reader the evidence to act without re-deriving it.',
 };

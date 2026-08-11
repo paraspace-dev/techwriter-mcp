@@ -4,7 +4,7 @@ The model provider caches the longest prefix of a prompt it has seen before,
 so anything that changes per request poisons the cache for everything after
 it. A timestamp in the first line costs you the whole corpus.
 
-docs-mcp builds every prompt in the same order for this reason. The editorial
+techwriter-mcp builds every prompt in the same order for this reason. The editorial
 brief, your instructions, and the voice corpus never change between requests,
 so they form the prefix; the task, the facts, and the document under edit
 come after. The first request of a session pays full price and writes the

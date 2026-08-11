@@ -1,14 +1,15 @@
 ---
-description: Scaffold .docs-mcp/ so the docs server can learn this project's voice
+description: Scaffold .techwriter-mcp/ so the techwriter server can learn this project's voice
 ---
 
-Set up the `.docs-mcp/` directory for this project. It configures the docs MCP
-server (the `docs` tools), which writes human-facing prose from facts.
+Set up the `.techwriter-mcp/` directory for this project. It configures the
+techwriter MCP server (the `techwriter` tools), which writes human-facing
+prose from facts.
 
-1. If `.docs-mcp/` already exists, report what is in it and stop.
+1. If `.techwriter-mcp/` already exists, report what is in it and stop.
 
 2. Ask the user which OpenAI model to use if they have a preference. If they
-   have none, use `gpt-5.6-terra`. Then create `.docs-mcp/config.toml`:
+   have none, use `gpt-5.6-terra`. Then create `.techwriter-mcp/config.toml`:
 
    ```toml
    [model]
@@ -18,22 +19,22 @@ server (the `docs` tools), which writes human-facing prose from facts.
    include = []
    ```
 
-   Files in `.docs-mcp/voice/examples/` and `.docs-mcp/voice/avoid/` load
-   automatically. Leave `include = []` when all voice material lives there.
+   Files in `.techwriter-mcp/voice/examples/` and `.techwriter-mcp/voice/avoid/`
+   load automatically. Leave `include = []` when all voice material lives there.
    The `[voice] include` globs add repository files to the corpus. If the user
    confirms that current documentation is hand-written, add the appropriate
    glob, such as `docs/**/*.md`, to `include`.
 
-3. Create `.docs-mcp/instructions.md` with the project's writing rules for the
-   docs model: who reads these docs, what register they expect, and any hard
-   style rules. Distill from the repo's existing style guidance (AGENTS.md,
-   CLAUDE.md, CONTRIBUTING, style guides) if present; otherwise ask the user
-   two or three concrete questions (audience, register, banned habits) rather
-   than inventing rules.
+3. Create `.techwriter-mcp/instructions.md` with the project's writing rules
+   for the techwriter model: who reads these docs, what register they expect,
+   and any hard style rules. Distill from the repo's existing style guidance
+   (AGENTS.md, CLAUDE.md, CONTRIBUTING, style guides) if present; otherwise ask
+   the user two or three concrete questions (audience, register, banned habits)
+   rather than inventing rules.
 
-4. Create `.docs-mcp/voice/examples/` and `.docs-mcp/voice/avoid/`, then help
-   the user fill them. This corpus teaches the model the project's voice, and
-   its quality decides the output's quality:
+4. Create `.techwriter-mcp/voice/examples/` and `.techwriter-mcp/voice/avoid/`,
+   then help the user fill them. This corpus teaches the model the project's
+   voice, and its quality decides the output's quality:
 
    - **Examples must be genuinely hand-written.** Ask the user for prose they
      wrote themselves: READMEs from their pre-AI projects, blog posts,

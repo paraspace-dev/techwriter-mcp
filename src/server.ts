@@ -14,13 +14,13 @@ async function respond(fn: Handler) {
 }
 
 export function createServer(service: () => DocumentService): McpServer {
-  const server = new McpServer({ name: 'docs', version: '0.1.0' });
+  const server = new McpServer({ name: 'techwriter', version: '0.1.0' });
 
   server.registerTool(
     'create',
     {
       description:
-        'Write a software document (plan, RFC, design doc, README, guide, ADR) from facts you supply. ' +
+        'Write a software document (plan, RFC, design doc, README, guide, ADR, PR description, issue) from facts you supply. ' +
         'Investigate the repository first, then pass what you learned as structured material. ' +
         'Do not draft prose yourself and do not paste a draft as material; a separate writing model decides structure and wording. ' +
         'When it returns, fact-check the document against the repository and send corrections through the edit tool as facts.',

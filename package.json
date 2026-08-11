@@ -1,12 +1,12 @@
 {
-  "name": "docs-mcp",
+  "name": "techwriter-mcp",
   "version": "0.1.0",
-  "description": "Deslop technical documentation via your own writing samples",
+  "description": "Deslop technical writing via your own writing samples",
   "license": "MIT",
   "author": "Wes Roberts",
   "type": "module",
   "bin": {
-    "docs-mcp": "dist/main.js"
+    "techwriter-mcp": "dist/main.js"
   },
   "files": [
     "dist",
@@ -33,6 +33,6 @@
     "typescript": "^5.7.0",
     "vitest": "^4.0.0"
   },
-  "repository": "https://github.com/paraspace-dev/docs-mcp",
-  "homepage": "https://github.com/paraspace-dev/docs-mcp#readme"
+  "repository": "https://github.com/paraspace-dev/techwriter-mcp",
+  "homepage": "https://github.com/paraspace-dev/techwriter-mcp#readme"
 }

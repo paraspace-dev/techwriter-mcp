@@ -26,16 +26,16 @@ function md(dir: string, cwd: string): string[] {
 export function loadCorpus(root: string, voice: Config['voice']): Corpus {
   const candidates: Array<{ path: string; role: CorpusFile['role'] }> = [];
 
-  for (const path of md('.docs-mcp/voice/examples', root)) {
+  for (const path of md('.techwriter-mcp/voice/examples', root)) {
     candidates.push({ path, role: 'example' });
   }
-  for (const path of md('.docs-mcp/voice/avoid', root)) {
+  for (const path of md('.techwriter-mcp/voice/avoid', root)) {
     candidates.push({ path, role: 'avoid' });
   }
   if (voice.include.length > 0) {
     const included = globSync(voice.include, {
       cwd: root,
-      ignore: [...voice.exclude, '.docs-mcp/**', 'node_modules/**'],
+      ignore: [...voice.exclude, '.techwriter-mcp/**', 'node_modules/**'],
     }).sort();
     for (const path of included) candidates.push({ path, role: 'voice' });
   }

@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import type { ModelProvider, ModelRequest } from '../src/provider.js';
 
 export function tempRoot(files: Record<string, string>): string {
-  const root = mkdtempSync(join(tmpdir(), 'docs-mcp-test-'));
+  const root = mkdtempSync(join(tmpdir(), 'techwriter-mcp-test-'));
   for (const [path, text] of Object.entries(files)) {
     mkdirSync(join(root, dirname(path)), { recursive: true });
     writeFileSync(join(root, path), text);

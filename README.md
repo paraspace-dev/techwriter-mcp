@@ -1,4 +1,4 @@
-# docs-mcp
+# techwriter-mcp
 
 Write repository documents from verified codebase facts. Your coding agent
 investigates the repository, this server sends those facts to a separate model
@@ -8,16 +8,16 @@ corrections back.
 ## Install with Claude Code
 
 ```text
-/plugin marketplace add paraspace-dev/docs-mcp
-/plugin install docs-mcp@docs-mcp
+/plugin marketplace add paraspace-dev/techwriter-mcp
+/plugin install techwriter-mcp@techwriter-mcp
 ```
 
 Claude Code prompts once for an OpenAI API key and stores it in the OS keychain.
-The plugin registers the `docs` MCP server, a skill that keeps the agent in the
+The plugin registers the `techwriter` MCP server, a skill that keeps the agent in the
 facts-in role, and a command to set up project writing configuration:
 
 ```text
-/docs-mcp:docs-init
+/techwriter-mcp:techwriter-init
 ```
 
 ## How it works
@@ -32,12 +32,14 @@ editorial problems.
 
 The fact-check matters. Wrong facts produce a well-written wrong document.
 
-docs-mcp writes plans, RFCs, design and architecture docs, READMEs, guides,
-explanations, and ADRs.
+techwriter-mcp writes plans, RFCs, design and architecture docs, READMEs,
+guides, explanations, ADRs, pull request descriptions, and issues. For PRs and
+issues, the first line of the document is the title as a `#` heading; the
+agent strips it and passes it to `gh` separately.
 
 ## Other MCP hosts
 
-The server is the npm package `docs-mcp`. Run it as `npx -y docs-mcp@latest`
+The server is the npm package `techwriter-mcp`. Run it as `npx -y techwriter-mcp@latest`
 with `OPENAI_API_KEY` in its environment.
 
 ### Claude Code project configuration
@@ -47,9 +49,9 @@ For Claude Code without the plugin, add the server to `.mcp.json`:
 ```json
 {
   "mcpServers": {
-    "docs": {
+    "techwriter": {
       "command": "npx",
-      "args": ["-y", "docs-mcp@latest"]
+      "args": ["-y", "techwriter-mcp@latest"]
     }
   }
 }
@@ -60,21 +62,21 @@ For Claude Code without the plugin, add the server to `.mcp.json`:
 For Codex, add the server to `~/.codex/config.toml`:
 
 ```toml
-[mcp_servers.docs]
+[mcp_servers.techwriter]
 command = "npx"
-args = ["-y", "docs-mcp@latest"]
+args = ["-y", "techwriter-mcp@latest"]
 ```
 
 ## Give it your project's voice
 
-Configuration is optional. Without `.docs-mcp/`, the server uses its editorial
+Configuration is optional. Without `.techwriter-mcp/`, the server uses its editorial
 brief and a default model.
 
 Add examples and writing rules when you want the document to sound like your
 project:
 
 ```text
-.docs-mcp/
+.techwriter-mcp/
   config.toml       model choice, voice corpus globs
   instructions.md   your house style, in your words
   voice/
@@ -101,5 +103,5 @@ originals recovered from git history can go in `voice/avoid/`.
 The corpus is capped at `max_kb`, which defaults to 256 KB. The server reports
 files it drops for the budget. The corpus is sent with every request and uses
 the provider's prompt cache, so it is nearly free after the first call of a
-session. Set `DOCS_MCP_DEBUG=1` to print input, cached, and output token counts
+session. Set `TECHWRITER_MCP_DEBUG=1` to print input, cached, and output token counts
 to stderr.

@@ -5,7 +5,7 @@ import { FakeProvider } from './helpers.js';
 describe('DocumentService', () => {
   it('sends the identical system string and cache key for every operation', async () => {
     const provider = new FakeProvider();
-    const service = new DocumentService(provider, 'STABLE PREFIX', 'docs-mcp:/repo');
+    const service = new DocumentService(provider, 'STABLE PREFIX', 'techwriter-mcp:/repo');
 
     await service.create({ type: 'plan', purpose: 'p' });
     await service.edit({ document: 'd', changes: 'c' });
@@ -14,7 +14,7 @@ describe('DocumentService', () => {
     expect(provider.requests).toHaveLength(3);
     for (const req of provider.requests) {
       expect(req.system).toBe('STABLE PREFIX');
-      expect(req.cacheKey).toBe('docs-mcp:/repo');
+      expect(req.cacheKey).toBe('techwriter-mcp:/repo');
     }
     const users = new Set(provider.requests.map((r) => r.user));
     expect(users.size).toBe(3);

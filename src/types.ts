@@ -9,6 +9,8 @@ export const DOC_TYPES = [
   'guide',
   'explanation',
   'adr',
+  'pr',
+  'issue',
 ] as const;
 
 export const createSchema = z.object({

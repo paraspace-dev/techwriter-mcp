@@ -1,4 +1,4 @@
-# Example docs-mcp project configuration. Copy .docs-mcp/ into your repo root.
+# Example techwriter-mcp project configuration. Copy .techwriter-mcp/ into your repo root.
 
 [model]
 # Any current OpenAI general-purpose model.

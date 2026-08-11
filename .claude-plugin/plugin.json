@@ -1,15 +1,15 @@
 {
-  "name": "docs-mcp",
+  "name": "techwriter-mcp",
   "version": "0.1.0",
-  "description": "Writes your docs from facts, so the coding agent never has to. Ships the docs MCP server, the writing-docs workflow skill, and /docs-init.",
+  "description": "Writes your docs, PR descriptions, and issues from facts, so the coding agent never has to. Ships the techwriter MCP server, the writing-prose workflow skill, and /techwriter-init.",
   "author": { "name": "Wes Roberts" },
-  "repository": "https://github.com/paraspace-dev/docs-mcp",
+  "repository": "https://github.com/paraspace-dev/techwriter-mcp",
   "license": "MIT",
   "keywords": ["documentation", "writing", "mcp"],
   "mcpServers": {
-    "docs": {
+    "techwriter": {
       "command": "npx",
-      "args": ["-y", "docs-mcp@latest"],
+      "args": ["-y", "techwriter-mcp@latest"],
       "env": {
         "OPENAI_API_KEY": "${user_config.openai_api_key}"
       }
@@ -19,7 +19,7 @@
     "openai_api_key": {
       "type": "string",
       "title": "OpenAI API key",
-      "description": "The docs server calls an OpenAI model to write prose. Create a key at https://platform.openai.com/api-keys.",
+      "description": "The techwriter server calls an OpenAI model to write prose. Create a key at https://platform.openai.com/api-keys.",
       "sensitive": true,
       "required": true
     }

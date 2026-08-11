@@ -1,12 +1,12 @@
 {
-  "name": "docs-mcp",
-  "description": "The docs-mcp plugin, served from its own repository.",
+  "name": "techwriter-mcp",
+  "description": "The techwriter-mcp plugin, served from its own repository.",
   "owner": { "name": "Wes Roberts" },
   "plugins": [
     {
-      "name": "docs-mcp",
+      "name": "techwriter-mcp",
       "source": "./",
-      "description": "Writes your docs from facts, so the coding agent never has to."
+      "description": "Writes your docs, PR descriptions, and issues from facts, so the coding agent never has to."
     }
   ]
 }

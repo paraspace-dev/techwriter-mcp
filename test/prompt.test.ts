@@ -10,7 +10,7 @@ import type { CorpusFile } from '../src/corpus.js';
 
 const corpus: CorpusFile[] = [
   { path: 'docs/why.md', role: 'voice', text: 'the why doc' },
-  { path: '.docs-mcp/voice/avoid/slop.md', role: 'avoid', text: 'slop sample' },
+  { path: '.techwriter-mcp/voice/avoid/slop.md', role: 'avoid', text: 'slop sample' },
 ];
 
 describe('buildSystem', () => {
@@ -49,6 +49,13 @@ describe('buildCreateUser', () => {
     expect(user).toContain('- no breaking change');
     expect(user).not.toContain('Current behavior');
     expect(user).not.toContain('Open questions');
+  });
+
+  it('carries the title convention for pr and issue documents', () => {
+    for (const type of ['pr', 'issue'] as const) {
+      const user = buildCreateUser({ type, purpose: 'explain the change' });
+      expect(user).toContain('title as a single `#` heading');
+    }
   });
 });
 

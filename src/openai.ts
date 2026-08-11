@@ -10,7 +10,7 @@ export class OpenAIProvider implements ModelProvider {
     const apiKey = process.env[cfg.apiKeyEnv];
     if (!apiKey) {
       throw new Error(
-        `${cfg.apiKeyEnv} is not set; export it in the environment that launches docs-mcp`
+        `${cfg.apiKeyEnv} is not set; export it in the environment that launches techwriter-mcp`
       );
     }
     this.client = new OpenAI({ apiKey });

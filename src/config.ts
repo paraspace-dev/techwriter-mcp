@@ -42,14 +42,14 @@ const defaults: Config = {
   voice: { include: [], exclude: [], maxKb: 256 },
 };
 
-// Root is where .docs-mcp/ lives: DOCS_MCP_ROOT if set, else the cwd the
-// MCP host launched us with (project scope in Claude Code and Codex).
+// Root is where .techwriter-mcp/ lives: TECHWRITER_MCP_ROOT if set, else the
+// cwd the MCP host launched us with (project scope in Claude Code and Codex).
 export function findRoot(): string {
-  return process.env.DOCS_MCP_ROOT || process.cwd();
+  return process.env.TECHWRITER_MCP_ROOT || process.cwd();
 }
 
 export function loadConfig(root: string): Config {
-  const path = join(root, '.docs-mcp', 'config.toml');
+  const path = join(root, '.techwriter-mcp', 'config.toml');
   if (!existsSync(path)) return defaults;
 
   let raw: unknown;
@@ -81,7 +81,7 @@ export function loadConfig(root: string): Config {
 }
 
 export function loadInstructions(root: string): string {
-  const path = join(root, '.docs-mcp', 'instructions.md');
+  const path = join(root, '.techwriter-mcp', 'instructions.md');
   if (!existsSync(path)) return '';
   return readFileSync(path, 'utf8').trim();
 }

@@ -3,7 +3,7 @@ import { loadConfig } from '../src/config.js';
 import { tempRoot } from './helpers.js';
 
 describe('loadConfig', () => {
-  it('returns defaults when no .docs-mcp exists', () => {
+  it('returns defaults when no .techwriter-mcp exists', () => {
     const root = tempRoot({});
     const config = loadConfig(root);
     expect(config.model.provider).toBe('openai');
@@ -14,7 +14,7 @@ describe('loadConfig', () => {
 
   it('maps config.toml onto defaults', () => {
     const root = tempRoot({
-      '.docs-mcp/config.toml': [
+      '.techwriter-mcp/config.toml': [
         '[model]',
         'model = "gpt-5.1"',
         'api_key_env = "MY_KEY"',
@@ -36,12 +36,12 @@ describe('loadConfig', () => {
   });
 
   it('names the file on malformed toml', () => {
-    const root = tempRoot({ '.docs-mcp/config.toml': '[model\nbroken' });
+    const root = tempRoot({ '.techwriter-mcp/config.toml': '[model\nbroken' });
     expect(() => loadConfig(root)).toThrow(/config\.toml/);
   });
 
   it('names the file on invalid values', () => {
-    const root = tempRoot({ '.docs-mcp/config.toml': '[voice]\nmax_kb = -4' });
+    const root = tempRoot({ '.techwriter-mcp/config.toml': '[voice]\nmax_kb = -4' });
     expect(() => loadConfig(root)).toThrow(/config\.toml/);
   });
 });

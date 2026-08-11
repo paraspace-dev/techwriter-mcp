@@ -7,28 +7,28 @@ const voice = { include: ['docs/**/*.md'], exclude: [], maxKb: 256 };
 describe('loadCorpus', () => {
   it('orders examples, then avoid, then includes, each sorted by path', () => {
     const root = tempRoot({
-      '.docs-mcp/voice/examples/b.md': 'example b',
-      '.docs-mcp/voice/examples/a.md': 'example a',
-      '.docs-mcp/voice/avoid/slop.md': 'slop',
+      '.techwriter-mcp/voice/examples/b.md': 'example b',
+      '.techwriter-mcp/voice/examples/a.md': 'example a',
+      '.techwriter-mcp/voice/avoid/slop.md': 'slop',
       'docs/two.md': 'two',
       'docs/one.md': 'one',
     });
     const { files, dropped } = loadCorpus(root, voice);
     expect(files.map((f) => [f.path, f.role])).toEqual([
-      ['.docs-mcp/voice/examples/a.md', 'example'],
-      ['.docs-mcp/voice/examples/b.md', 'example'],
-      ['.docs-mcp/voice/avoid/slop.md', 'avoid'],
+      ['.techwriter-mcp/voice/examples/a.md', 'example'],
+      ['.techwriter-mcp/voice/examples/b.md', 'example'],
+      ['.techwriter-mcp/voice/avoid/slop.md', 'avoid'],
       ['docs/one.md', 'voice'],
       ['docs/two.md', 'voice'],
     ]);
     expect(dropped).toEqual([]);
   });
 
-  it('applies excludes and never includes .docs-mcp itself', () => {
+  it('applies excludes and never includes .techwriter-mcp itself', () => {
     const root = tempRoot({
       'docs/keep.md': 'keep',
       'docs/generated/out.md': 'generated',
-      '.docs-mcp/config.toml': '',
+      '.techwriter-mcp/config.toml': '',
     });
     const { files } = loadCorpus(root, {
       ...voice,
