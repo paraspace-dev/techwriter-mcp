@@ -38,7 +38,7 @@ const fileSchema = z.object({
 });
 
 const defaults: Config = {
-  model: { provider: 'openai', model: 'gpt-5.1', apiKeyEnv: 'OPENAI_API_KEY' },
+  model: { provider: 'openai', model: 'gpt-5.6-terra', apiKeyEnv: 'OPENAI_API_KEY' },
   voice: { include: [], exclude: [], maxKb: 256 },
 };
 

@@ -1,2 +1,5 @@
 node_modules/
 dist/
+
+# per-machine voice corpus (may contain unpublished writing)
+.docs-mcp/voice/

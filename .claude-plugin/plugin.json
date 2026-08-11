@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Writes your docs from facts, so the coding agent never has to. Ships the docs MCP server, the writing-docs workflow skill, and /docs-init.",
   "author": { "name": "Wes Roberts" },
-  "repository": "https://github.com/jchook/docs-mcp",
+  "repository": "https://github.com/paraspace-dev/docs-mcp",
   "license": "MIT",
   "keywords": ["documentation", "writing", "mcp"],
   "mcpServers": {
