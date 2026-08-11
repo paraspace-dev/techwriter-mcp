@@ -1,6 +1,6 @@
 ---
 name: writing-prose
-description: Use whenever writing or revising human-facing prose in this project: docs pages, READMEs, guides, plans, RFCs, design docs, PR descriptions, issue reports, or any markdown a person will read. The techwriter MCP server writes the prose; you supply verified facts.
+description: "Use whenever writing or revising human-facing prose in this project: docs pages, READMEs, guides, plans, RFCs, design docs, PR descriptions, issue reports, or any markdown a person will read. The techwriter MCP server writes the prose; you supply verified facts."
 ---
 
 # Writing prose through the techwriter server
