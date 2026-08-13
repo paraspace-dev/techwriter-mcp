@@ -1,5 +1,17 @@
 # techwriter-mcp
 
+**Moved.** Development continues in [paraspace-dev/writer-mcps](https://github.com/paraspace-dev/writer-mcps),
+a marketplace of writer MCP servers. Install from there:
+
+```text
+/plugin marketplace add paraspace-dev/writer-mcps
+/plugin install techwriter@writer-mcps
+```
+
+The npm package `techwriter-mcp` is unchanged and published from the new repo.
+
+---
+
 Write repository documents from verified codebase facts. Your coding agent
 investigates the repository, this server sends those facts to a separate model
 that writes the document, and the agent fact-checks the result before sending
